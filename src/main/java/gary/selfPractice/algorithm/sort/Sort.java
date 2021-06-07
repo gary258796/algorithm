@@ -1,3 +1,4 @@
+/* (C)2021 */
 package gary.selfPractice.algorithm.sort;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public abstract class Sort<T> {
 
   /**
    * Return boolean which tells if first parameter is bigger than the second one.
+   *
    * @param first:
    * @param second:
    * @return true if first is bigger than second
@@ -25,19 +27,16 @@ public abstract class Sort<T> {
   protected boolean isBigger(T first, T second) {
     boolean result = false;
 
-    if(first instanceof String) {
+    if (first instanceof String) {
       String firstString = (String) first;
       String secondString = (String) second;
-      if(firstString.compareTo(secondString) > 0)
-        result = true;
+      if (firstString.compareTo(secondString) > 0) result = true;
     } else if (first instanceof Integer) {
       Integer firstInt = (Integer) first;
       Integer secondInt = (Integer) second;
-      if(firstInt > secondInt)
-        result = true;
+      if (firstInt > secondInt) result = true;
     }
 
     return result;
   }
-
 }

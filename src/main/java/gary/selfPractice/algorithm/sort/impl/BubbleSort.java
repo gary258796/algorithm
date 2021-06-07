@@ -1,8 +1,9 @@
+/* (C)2021 */
 package gary.selfPractice.algorithm.sort.impl;
 
 import gary.selfPractice.algorithm.sort.Sort;
-import org.springframework.stereotype.Component;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
 /**
  * Bubble sort implementation.
@@ -36,11 +37,10 @@ public class BubbleSort<T> extends Sort<T> {
         }
 
         // break for loop when the data already sorted correctly
-        if(!swapNeeded) break;
+        if (!swapNeeded) break;
       }
     }
 
     return sortedData;
   }
-
 }

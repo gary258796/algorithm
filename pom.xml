@@ -13,9 +13,12 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>algorithm</name>
 	<description>Practice sorting and data structure</description>
+
 	<properties>
 		<java.version>11</java.version>
+		<spotless.version>2.11.1</spotless.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -29,7 +32,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -51,6 +53,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.diffplug.spotless</groupId>
+			<artifactId>spotless-maven-plugin</artifactId>
+			<version>${spotless.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -66,6 +73,72 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+
+			<!-- Spotless plugin-->
+			<plugin>
+				<groupId>com.diffplug.spotless</groupId>
+				<artifactId>spotless-maven-plugin</artifactId>
+				<version>${spotless.version}</version>
+				<configuration>
+					<formats>
+						<!-- you can define as many formats as you want, each is independent -->
+						<format>
+							<!-- define the files to apply to -->
+							<includes>
+								<include>*.md</include>
+								<include>.gitignore</include>
+							</includes>
+							<!-- define the formatter steps to apply to those files -->
+							<!-- 去掉尾隨的空白 -->
+							<trimTrailingWhitespace/>
+							<!-- 結尾加上換行字元 -->
+							<endWithNewline/>
+							<!-- 縮排格式 -->
+							<indent>
+								<tabs>true</tabs>
+								<spacesPerTab>4</spacesPerTab>
+							</indent>
+						</format>
+					</formats>
+					<!-- define a language-specific format -->
+					<java>
+						<!-- These are the defaults, you can override if you want -->
+						<includes>
+							<include>src/main/java/**/*.java</include>
+							<include>src/test/java/**/*.java</include>
+						</includes>
+
+						<!-- Removed unused import -->
+						<removeUnusedImports/>
+						<!-- import order -->
+						<importOrder>
+							<order>java,javax,org,gary</order>
+						</importOrder>
+
+						<!-- apply a specific flavor of google-java-format -->
+						<googleJavaFormat>
+							<version>1.10.0</version>
+							<style>GOOGLE</style>
+						</googleJavaFormat>
+
+						<!-- make sure every file has the following copyright header.
+                          optionally, Spotless can set copyright years by digging
+                          through git history (see "license" section below) -->
+						<licenseHeader>
+							<content>/* (C)$YEAR */</content>  <!-- or <file>${basedir}/license-header</file> -->
+						</licenseHeader>
+					</java>
+				</configuration>
+				<executions>
+					<execution>
+						<!-- Run this goal im compile phase -->
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<phase>compile</phase>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
