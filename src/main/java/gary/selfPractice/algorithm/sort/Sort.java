@@ -1,4 +1,4 @@
-/* (C)2021 */
+/* Licensed of Gary Liao (C)2021 */
 package gary.selfPractice.algorithm.sort;
 
 import java.util.List;
@@ -38,5 +38,18 @@ public abstract class Sort<T> {
     }
 
     return result;
+  }
+
+  /**
+   * Swap the element value in indexA and indexB inside List
+   *
+   * @param list:
+   * @param indexA:
+   * @param indexB:
+   */
+  protected void Swap(List<T> list, int indexA, int indexB) {
+    T temp = list.get(indexA);
+    list.set(indexA, list.get(indexB));
+    list.set(indexB, temp);
   }
 }

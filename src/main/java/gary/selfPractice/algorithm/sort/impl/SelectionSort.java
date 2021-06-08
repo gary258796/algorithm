@@ -1,4 +1,4 @@
-/* (C)2021 */
+/* Licensed of Gary Liao (C)2021 */
 package gary.selfPractice.algorithm.sort.impl;
 
 import gary.selfPractice.algorithm.sort.Sort;
