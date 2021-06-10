@@ -5,13 +5,9 @@ import gary.selfPractice.algorithm.sort.Sort;
 import java.util.List;
 import org.springframework.stereotype.Component;
 
-/**
- * Bubble sort implementation.
- *
- * @param <T>
- */
+/** Bubble sort implementation. */
 @Component
-public class BubbleSort<T> extends Sort<T> {
+public class BubbleSort extends Sort<Integer> {
 
   /* Algorithm pseudo code
    * for(i=0 to collectionSize-1){
@@ -22,7 +18,7 @@ public class BubbleSort<T> extends Sort<T> {
    * }
    * */
   @Override
-  public List<T> sorting(List<T> sortedData) {
+  public List<Integer> sorting(List<Integer> sortedData) {
     // boolean for case when data get sorted correctly before the last loop
     // then, we can save some time doing unneeded compare.
     boolean swapNeeded = true;
@@ -34,10 +30,10 @@ public class BubbleSort<T> extends Sort<T> {
           Swap(sortedData, i, j);
           swapNeeded = true;
         }
-
-        // break for loop when the data already sorted correctly
-        if (!swapNeeded) break;
       }
+
+      // break for loop when the data already sorted correctly
+      if (!swapNeeded) break;
     }
 
     return sortedData;
