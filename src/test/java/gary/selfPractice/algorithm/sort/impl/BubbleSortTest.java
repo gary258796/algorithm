@@ -1,6 +1,7 @@
 /* Licensed of Gary Liao (C)2021 */
 package gary.selfPractice.algorithm.sort.impl;
 
+import gary.selfPractice.algorithm.recordTime.TimingExtension;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootTest
+@ExtendWith(TimingExtension.class)
 @DisplayName("Testing BubbleSort...")
 @ComponentScan(basePackages = "gary.selfPractice.algorithm.sort.impl")
 public class BubbleSortTest {

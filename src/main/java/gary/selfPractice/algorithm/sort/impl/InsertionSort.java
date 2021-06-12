@@ -29,5 +29,4 @@ public class InsertionSort extends Sort<Integer> {
 
     return sortedData;
   }
-
 }
