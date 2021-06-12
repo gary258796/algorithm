@@ -11,8 +11,7 @@ import org.springframework.stereotype.Component;
  * @param <T>
  */
 @Component
-public class SelectionSort<T> extends Sort<T> {
-
+public class SelectionSort extends Sort<Integer> {
   /*
     Algorithm:
     from i = 0 to collection.size-2
@@ -24,11 +23,11 @@ public class SelectionSort<T> extends Sort<T> {
         Swap(minElement,i);
   */
   @Override
-  public List<T> sorting(List<T> sortedData) {
+  public List<Integer> sorting(List<Integer> sortedData) {
     for (int i = 0; i < sortedData.size() - 1; i++) {
       int minIndex = i;
       for (int j = i + 1; j < sortedData.size(); j++) {
-        if (isBigger(sortedData.get(i), sortedData.get(j))) minIndex = j;
+        if (isBigger(sortedData.get(minIndex), sortedData.get(j))) minIndex = j;
       }
       if (minIndex != i) Swap(sortedData, i, minIndex);
     }
