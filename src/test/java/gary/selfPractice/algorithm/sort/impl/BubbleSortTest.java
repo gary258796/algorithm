@@ -5,10 +5,7 @@ import gary.selfPractice.algorithm.recordTime.TimingExtension;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -18,6 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootTest
 @ExtendWith(TimingExtension.class)
+@TestMethodOrder(value = MethodOrderer.OrderAnnotation.class)
 @DisplayName("Testing BubbleSort...")
 @ComponentScan(basePackages = "gary.selfPractice.algorithm.sort.impl")
 public class BubbleSortTest {
@@ -25,6 +23,7 @@ public class BubbleSortTest {
   @Autowired private BubbleSort bubbleSort;
 
   @Tag("BubbleSort")
+  @Order(1)
   @DisplayName("Test empty list...")
   @ParameterizedTest
   @MethodSource("gary.selfPractice.algorithm.provider.TestDataProvider#emptyData")
@@ -34,6 +33,7 @@ public class BubbleSortTest {
   }
 
   @Tag("BubbleSort")
+  @Order(2)
   @DisplayName("Test size 1 list...")
   @ParameterizedTest
   @MethodSource("gary.selfPractice.algorithm.provider.TestDataProvider#oneElementData")
@@ -43,6 +43,7 @@ public class BubbleSortTest {
   }
 
   @Tag("BubbleSort")
+  @Order(3)
   @DisplayName("Test size 3 list...")
   @ParameterizedTest
   @MethodSource("gary.selfPractice.algorithm.provider.TestDataProvider#threeElementData")
@@ -53,6 +54,7 @@ public class BubbleSortTest {
   }
 
   @Tag("BubbleSort")
+  @Order(4)
   @DisplayName("Test list include null at first element...")
   @ParameterizedTest
   @MethodSource(
@@ -64,6 +66,7 @@ public class BubbleSortTest {
   }
 
   @Tag("BubbleSort")
+  @Order(5)
   @DisplayName("Test list include null at middle element...")
   @ParameterizedTest
   @MethodSource(
@@ -75,6 +78,7 @@ public class BubbleSortTest {
   }
 
   @Tag("BubbleSort")
+  @Order(6)
   @DisplayName("Test list include multiple null elements...")
   @ParameterizedTest
   @MethodSource("gary.selfPractice.algorithm.provider.TestDataProvider#includeNullElementsData")
@@ -86,6 +90,7 @@ public class BubbleSortTest {
 
   @Test
   @Tag("BubbleSort")
+  @Order(7)
   @DisplayName("Test list with random 1000 data...")
   void testDataWithRandomData() {
     final int size = 1000;
