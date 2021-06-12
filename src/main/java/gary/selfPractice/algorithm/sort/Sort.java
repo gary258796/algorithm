@@ -27,6 +27,13 @@ public abstract class Sort<T> {
   protected boolean isBigger(T first, T second) {
     boolean result = false;
 
+    // Handle null condition
+    // Treat null as the biggest value.
+    // Therefore the sorting result will have all null elements at the back of the list.
+    if (first == null && second != null) return true;
+    else if (first != null && second == null) return false;
+    else if (first == null && second == null) return false;
+
     if (first instanceof String) {
       String firstString = (String) first;
       String secondString = (String) second;
