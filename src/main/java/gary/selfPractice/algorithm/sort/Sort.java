@@ -2,6 +2,7 @@
 package gary.selfPractice.algorithm.sort;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Interface that all sorts need to implements。 Provide a method 'sort', responsible to finish
@@ -45,6 +46,17 @@ public abstract class Sort<T> {
     }
 
     return result;
+  }
+
+  /**
+   * Return boolean which tells if first is equals to second
+   *
+   * @param first:
+   * @param second:
+   * @return boolean
+   */
+  protected boolean isEquals(T first, T second) {
+    return Objects.equals(first, second);
   }
 
   /**

@@ -3,7 +3,6 @@ package gary.selfPractice.algorithm.sort.impl;
 
 import gary.selfPractice.algorithm.sort.Sort;
 import java.util.List;
-import java.util.Objects;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -77,7 +76,7 @@ public class QuickSort extends Sort<Integer> {
     int i = low - 1;
     for (int j = low; j < high; j++) {
       if (isBigger(unSortedData.get(high), unSortedData.get(j))
-          || Objects.equals(unSortedData.get(high), unSortedData.get(j))) {
+          || isEquals(unSortedData.get(high), unSortedData.get(j))) {
         i++;
         Swap(unSortedData, i, j);
       }
