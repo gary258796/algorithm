@@ -10,18 +10,37 @@ import org.springframework.stereotype.Component;
 public class QuickSort extends Sort<Integer> {
 
   /**
+   * fmt:off
    * Algorithm(Divide and Conquer)
    *
-   * <p>quickSort(arr[], low, high) { if(low<high){ // partition is responsible to place pivotIndex
-   * in correct place of array pivotIndex = partition(arr, low, high); // divide and conquer
-   * quickSort(arr, low, pivotIndex-1); quickSort(arr, pivotIndex+1, high); } }
+   * quickSort(arr[], low, high) {
+   *    if(low<high){
+   *      // partition is responsible to place pivotIndex in correct place of array
+   *      pivotIndex = partition(arr, low, high);
+   *      // divide and conquer
+   *      quickSort(arr, low, pivotIndex-1);
+   *      quickSort(arr, pivotIndex+1, high);
+   *    }
+   * }
    *
-   * <p>// pivot element will be evert last element partition(array, low, high) { // Store the index
-   * of elements that are smaller then array[right] int i = low-1; for(j=low; j < high; j++ ) { //
-   * compare all element with array[right] if(array[j] <= array[right]) { // if j element is smaller
-   * or equals to our pivot element // swap j to the front part where we put all elements that are
-   * smaller than pivot i++; swap(array[i], array[j]); } } // after finishing arrange other
-   * elements, put our pivot into correct place swap(i+1, high); return i+1; }
+   * // pivot element will be every last element
+   * partition(array, low, high) {
+   *    // Store the index of elements that are smaller then array[right]
+   *    int i = low-1;
+   *    for(j=low; j < high; j++ ) {
+   *    // compare all element with array[right]
+   *      if(array[j] <= array[right]) {
+   *        // if j element is smaller or equals to our pivot element
+   *        // swap j to the front part where we put all elements that are smaller than pivot
+   *        i++;
+   *        swap(array[i], array[j]);
+   *      }
+   *    }
+   *    // after finishing arrange other elements, put our pivot into correct place
+   *    swap(i+1, high);
+   *    return i+1;
+   * }
+   * fmt:on
    */
   @Override
   public List<Integer> sorting(List<Integer> sortedData) {

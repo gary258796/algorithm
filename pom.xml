@@ -115,6 +115,15 @@
 							<include>src/test/java/**/*.java</include>
 						</includes>
 
+						<!-- Open on/off for some code we don't want spotless format -->
+						<toggleOffOn>
+							<off>
+								fmt:off
+							</off>
+							<on>
+								fmt:on
+							</on>
+						</toggleOffOn>
 						<!-- Removed unused import -->
 						<removeUnusedImports/>
 						<!-- import order -->
